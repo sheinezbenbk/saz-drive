@@ -1,0 +1,33 @@
+
+/* Le conteneur */
+.marquee-rtl {
+    width: 100vw;                      
+    height: 80px;                       
+    background-color: black;              
+    overflow: hidden;                     
+    display: flex;                    
+    align-items: center;
+}
+
+/* Le bloc défilant */
+.marquee-rtl > :first-child {
+    padding-right: 2em;               
+    padding-left: 100%;               
+    white-space: nowrap;                 
+    color: white;                      
+    font-size: 24px;                     
+    font-weight: bold;
+    animation: defilement-rtl 180s linear infinite;
+}
+
+/* Animation du texte */
+@keyframes defilement-rtl {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
