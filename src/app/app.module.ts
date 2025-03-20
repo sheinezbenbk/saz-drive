@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
@@ -13,6 +12,9 @@ import { AdminComponent } from './component/admin/admin.component';
 import { AutoecoleComponent } from './component/autoecole/autoecole.component';
 import { AproposComponent } from './component/apropos/apropos.component';
 import { EntrainementComponent } from './component/entrainement/entrainement.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
 
 @NgModule({
   declarations: [
@@ -20,14 +22,17 @@ import { EntrainementComponent } from './component/entrainement/entrainement.com
     HeaderComponent,
     FooterComponent,
     AccueilComponent,
-    ConnexionComponent,
     CandidatComponent,
     AdminComponent,
     AutoecoleComponent,
     AproposComponent,
-    EntrainementComponent
+    EntrainementComponent,
+    InscriptionComponent,
+    DashboardComponent,
+    DashboardadminComponent
   ],
   imports: [
+    ConnexionComponent,
     BrowserModule,
     AppRoutingModule,
     NgbModule

@@ -1,0 +1,46 @@
+.zoom:hover {
+    transform: scale(1.02);
+    transition: transform 0.0s;
+  }
+  
+  
+    table {
+      width: 100%;
+    }
+  
+    td img {
+      width: 60px;
+      height: 60px;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+  
+    td img:hover {
+      transform: scale(1.07);
+  
+    }
+  
+    tbody tr {
+      border-bottom: 3px solid black;
+    }
+  
+    table,
+    th,
+    td {
+      border-collapse: collapse;
+      padding: 1rem;
+      text-align: left;
+    }
+  
+  
+    tbody tr:nth-child(even) {
+      background-color: #FFD24F
+    }
+  
+    tbody tr:nth-child(odd) {
+      background-color: #FFD24F
+    }
+  
+    body {
+      font-family: 'Poppins', sans-serif;
+    }

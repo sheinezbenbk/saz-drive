@@ -7,6 +7,9 @@ import { AutoecoleComponent } from './component/autoecole/autoecole.component';
 import { CandidatComponent } from './component/candidat/candidat.component';
 import { ConnexionComponent } from './component/connexion/connexion.component';
 import { EntrainementComponent } from './component/entrainement/entrainement.component';
+import { InscriptionComponent } from './component/inscription/inscription.component';
+import { DashboardComponent } from './component/dashboard/dashboard.component';
+import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
 
 const routes: Routes = [
   {path: 'app-accueil', component: AccueilComponent},
@@ -16,6 +19,10 @@ const routes: Routes = [
   {path: 'app-candidat', component: CandidatComponent}, 
   {path: 'app-connexion', component: ConnexionComponent}, 
   {path: 'app-entrainement', component: EntrainementComponent}, 
+  {path: 'app-inscription', component: InscriptionComponent}, 
+  {path:'app-dashboard', component:DashboardComponent}, 
+  {path:'app-dashboardadmin', component:DashboardadminComponent}, 
+  {path: '', component: AccueilComponent}, 
 ];
 
 @NgModule({

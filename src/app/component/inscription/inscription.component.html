@@ -1,0 +1,105 @@
+<div class="container mt-5">
+    <div class="row">
+
+        <div class="col-md-6">
+
+            <div class="text-container">
+                <h3 class="fw-bolder">AJOUTER UN ÉLÈVE</h3>
+                <p class="fw-medium text-secondary">
+                    AJOUTER UN NOUVEL ÉLÈVE À BORD DE LA SAZ TEAM POUR GARANTIR L’OBTENTION DU CODE DE LA ROUTE À COUP
+                    SÛR !
+                </p>
+            </div>
+
+            <div class="image-container">
+                <img src="image/homme.png" alt="Vue de route de voiture" class="img-fluid">
+            </div>
+        </div>
+
+        <!-- le formulaire -->
+        <div class="col-md-6">
+            <div class="form-container">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="nom" class="form-label">Nom</label>
+                            <input type="text" class="form-control" id="nom" placeholder="Ajouter un nom...">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="prenom" class="form-label">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" placeholder="Ajouter un prénom...">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Date de naissance</label>
+                            <div class="d-flex">
+                                <select class="form-select w-auto" id="day">
+                                    <option *ngFor="let day of days" [value]="day">{{ day }}</option>
+                                </select>
+                                <select class="form-select w-auto" id="month">
+                                    <option *ngFor="let month of months" [value]="month.value">{{ month.name }}</option>
+                                </select>
+                                <select class="form-select w-auto" id="year">
+                                    <option *ngFor="let year of years" [value]="year">{{ year }}</option>
+                                </select>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+                            <label for="telephone" class="form-label">Téléphone</label>
+                            <input type="tel" class="form-control" id="telephone" placeholder="Ex : 06 52 89 83 77">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="nom" class="form-label">PAYS</label>
+                            <input type="text" class="form-control" id="pays" placeholder="EX : FRANCE">
+                        </div>
+
+                        <div class="col-md-3">
+                            <label for="nom" class="form-label">VILLE</label>
+                            <input type="text" class="form-control" id="ville" placeholder="EX : PARIS">
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <label for="prenom" class="form-label">CODE POSTAL</label>
+                            <input type="text" class="form-control" id="codepostal" placeholder="EX : 75014">
+                        </div>
+                    </div>
+
+
+                    <div class="row mb-3">
+                        <div class="col-12">
+                            <label for="email" class="form-label">Adresse email</label>
+                            <input type="email" class="form-control" id="email"
+                                placeholder="Veuillez entrer une adresse email...">
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="password"
+                                placeholder="Veuillez entrer un mot de passe...">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="neph" class="form-label">Code NEPH</label>
+                            <input type="text" class="form-control" id="neph" placeholder="Ex : 32135741532154">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-12 text-center btn-submit-container">
+                            <button type="submit" class="btn-submit">Ajouter</button>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
