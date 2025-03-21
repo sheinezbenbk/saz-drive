@@ -10,6 +10,7 @@ import { EntrainementComponent } from './component/entrainement/entrainement.com
 import { InscriptionComponent } from './component/inscription/inscription.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
+import { ModifierComponent } from './component/modifier/modifier.component';
 
 const routes: Routes = [
   {path: 'app-accueil', component: AccueilComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'app-inscription', component: InscriptionComponent}, 
   {path:'app-dashboard', component:DashboardComponent}, 
   {path:'app-dashboardadmin', component:DashboardadminComponent}, 
+  {path:'app-modifier', component:ModifierComponent}, 
   {path: '', component: AccueilComponent}, 
 ];
 

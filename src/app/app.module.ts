@@ -15,6 +15,7 @@ import { EntrainementComponent } from './component/entrainement/entrainement.com
 import { InscriptionComponent } from './component/inscription/inscription.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
+import { ModifierComponent } from './component/modifier/modifier.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +30,12 @@ import { DashboardadminComponent } from './component/dashboardadmin/dashboardadm
     EntrainementComponent,
     InscriptionComponent,
     DashboardComponent,
-    DashboardadminComponent
+    DashboardadminComponent,
+    
   ],
   imports: [
     ConnexionComponent,
+    ModifierComponent,
     BrowserModule,
     AppRoutingModule,
     NgbModule

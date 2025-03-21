@@ -1,0 +1,144 @@
+<!-- PARTIE MENU -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 col-sm-3 col-xl-2" style="background-color: #D4C4F1;">
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="nav flex-column mx-1">
+            <a class="navbar-brand" href="#">
+              <img src="image/SAZ'DRIVE.png" style="height: 120px;"routerLink="/app-accueil" routerLinkActive="active">
+            </a>
+
+            <div class="d-block d-sm-none">
+              <a class="nav-link fw-semibold" href=""
+                style="text-decoration: none; color: #000000;">CODE DE LA ROUTE</a>
+              <a class="nav-link fw-semibold" href=""
+                style="text-decoration: none; color: #000000;">PERMIS DE CONNDUIRE</a>
+              <a class="nav-link fw-semibold" href=""
+                style="text-decoration: none; color: #000000;">RÉSULTATS</a>
+              <a class="nav-link fw-semibold" href=""
+                style="text-decoration: none; color: #000000;">À PROPOS</a>
+              <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
+            </div>
+
+            <div class="d-none d-sm-block d-lg-none">
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">CODE DE LA
+                ROUTE</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">PERMIS DE
+                CONNDUIRE</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">RÉSULTATS</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">À PROPOS</a>
+              <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
+            </div>
+            <div class="d-flex align-items-center">
+              <img class="rounded" src="icone/iconelogout.png" alt="" style="height: 20px; width: 20px;">
+              <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">DECONNEXION</a>
+            </div>
+            <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
+            <div class="d-flex align-items-center mt-3">
+              <img class="rounded" src="icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
+              <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">MENU PRINCIPAL</a>
+            </div>
+            <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
+            <div class="d-flex align-items-center">
+              <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
+              <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
+            </div>
+            <a class="nav-link mt-2 fw-medium menuvertical" href=""
+              style="text-decoration: none; color: #000000;" routerLink="/app-admin" routerLinkActive="active" >LISTES DES ÉLÈVES</a>
+            <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription" routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
+              ÉLÈVE</a>
+            <a class="nav-link fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;">GESTION DES AVIS</a>
+            <!--MENU SANS LIENS POUR-->
+            <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+            <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+<div class="form-container">
+  
+    <h1>MODIFIER UN ÉLÈVE</h1>
+    <p class="subtitle">AJOUTER UN NOUVELLE ÉLÈVE À PARTIR DE SES INFOS POUR GARANTIR L'OBTENTION DU CODE DE LA BORIE À COUP SÛR !</p>
+    
+    <div class="form-card">
+      <form formGroup="eleveForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nom">NOM</label>
+            <input type="text" id="nom" formControlName="nom" placeholder="VIGNESWARAN ">
+          </div>
+          <div class="form-group">
+            <label for="prenom">PRÉNOM</label>
+            <input type="text" id="prenom" formControlName="prenom" placeholder="ABI">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group date-group">
+            <label>DATE DE NAISSANCE</label>
+            <div class="date-inputs">
+              <input type="text" formControlName="dateNaissance.jour" placeholder="JJ">
+              <span class="date-separator">/</span>
+              <input type="text" formControlName="dateNaissance.mois" placeholder="MM">
+              <span class="date-separator">/</span>
+              <input type="text" formControlName="dateNaissance.annee" placeholder="AAAA">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="codeINEPH">CODE NEPH</label>
+            <input type="text" id="codeINEPH" formControlName="codeNEPH" placeholder="1425434353453153">
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label for="pays">PAYS</label>
+            <input type="text" id="pays" formControlName="pays" placeholder="FRANCE">
+          </div>
+          <div class="form-group">
+            <label for="ville">VILLE</label>
+            <input type="text" id="ville" formControlName="ville" placeholder="PARIS">
+          </div>
+          <div class="form-group">
+            <label for="codePostal">CODE POSTAL</label>
+            <input type="text" id="codePostal" formControlName="codePostal" placeholder="77500">
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">ADRESSE EMAIL</label>
+          <input type="email" id="email" formControlName="email" placeholder="rireqreereqsr@gmail.com">
+        </div>
+        
+        <div class="form-group">
+          <label for="motDePasse">MOT DE PASSE</label>
+          <input type="password" id="motDePasse" formControlName="motDePasse" placeholder="abi822632fdsf">
+        </div>
+        
+        <div class="form-buttons">
+          <button type="submit" class="btn btn-update" >METTRE À JOUR</button>
+          <button type="button" class="btn btn-delete" >SUPPRIMER</button>
+        </div>
+      </form>
+    </div>
+  </div>
