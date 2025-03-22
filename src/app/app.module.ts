@@ -16,6 +16,9 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
 import { ModifierComponent } from './component/modifier/modifier.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { AvisComponent } from './component/avis/avis.component';
+import { PageavisComponent } from './component/pageavis/pageavis.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { ModifierComponent } from './component/modifier/modifier.component';
     InscriptionComponent,
     DashboardComponent,
     DashboardadminComponent,
+    AvisComponent,
+    PageavisComponent,
     
   ],
   imports: [
@@ -41,6 +46,7 @@ import { ModifierComponent } from './component/modifier/modifier.component';
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent], 
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 export class AppModule { }

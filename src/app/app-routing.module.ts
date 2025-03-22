@@ -11,6 +11,8 @@ import { InscriptionComponent } from './component/inscription/inscription.compon
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DashboardadminComponent } from './component/dashboardadmin/dashboardadmin.component';
 import { ModifierComponent } from './component/modifier/modifier.component';
+import { AvisComponent } from './component/avis/avis.component';
+import { PageavisComponent } from './component/pageavis/pageavis.component';
 
 const routes: Routes = [
   {path: 'app-accueil', component: AccueilComponent},
@@ -24,6 +26,8 @@ const routes: Routes = [
   {path:'app-dashboard', component:DashboardComponent}, 
   {path:'app-dashboardadmin', component:DashboardadminComponent}, 
   {path:'app-modifier', component:ModifierComponent}, 
+  {path:'app-avis', component:AvisComponent}, 
+  {path:'app-pageavis', component:PageavisComponent}, 
   {path: '', component: AccueilComponent}, 
 ];
 

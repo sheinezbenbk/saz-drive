@@ -20,11 +20,13 @@ export class AppComponent {
           '/app-dashboardadmin', 
           '/app-admin', 
           '/app-modifier', 
-          '/app-inscription'
+          '/app-inscription', 
+          '/app-avis'
         ]; 
         this.hideHeader = hiddenPages.includes(event.url);
       }
     });
   }
+
 
 }

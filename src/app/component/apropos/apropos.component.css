@@ -1,0 +1,8 @@
+@media (max-width: 768px) {
+    .texteapropos {
+        font-size: 11px; 
+    }
+    .carteapropos {
+      padding: 3px;
+    }
+}

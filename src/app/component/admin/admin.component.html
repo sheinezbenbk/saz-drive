@@ -10,18 +10,16 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav flex-column mx-1">
             <a class="navbar-brand" href="#">
-              <img src="image/SAZ'DRIVE.png" style="height: 120px;"routerLink="/app-accueil" routerLinkActive="active">
+              <img src="image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
             </a>
 
             <div class="d-block d-sm-none">
-              <a class="nav-link fw-semibold" href=""
-                style="text-decoration: none; color: #000000;">CODE DE LA ROUTE</a>
-              <a class="nav-link fw-semibold" href=""
-                style="text-decoration: none; color: #000000;">PERMIS DE CONNDUIRE</a>
-              <a class="nav-link fw-semibold" href=""
-                style="text-decoration: none; color: #000000;">RÉSULTATS</a>
-              <a class="nav-link fw-semibold" href=""
-                style="text-decoration: none; color: #000000;">À PROPOS</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">CODE DE LA
+                ROUTE</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">PERMIS DE
+                CONNDUIRE</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">RÉSULTATS</a>
+              <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">À PROPOS</a>
               <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
             </div>
 
@@ -48,11 +46,19 @@
               <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
               <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
             </div>
-            <a class="nav-link mt-2 fw-medium menuvertical" href=""
-              style="text-decoration: none; color: #000000;" routerLink="/app-admin" routerLinkActive="active" >LISTES DES ÉLÈVES</a>
-            <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription" routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
+
+            <a class="nav-link mt-2 fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;"
+              routerLink="/app-admin" routerLinkActive="active">LISTES DES ÉLÈVES</a>
+            
+              <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription"
+              routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
               ÉLÈVE</a>
-            <a class="nav-link fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;">GESTION DES AVIS</a>
+            
+              <a class="nav-link fw-medium menuvertical" routerLink="/app-avis" routerLinkActive="active"
+              style="text-decoration: none; color: #000000;" routerLink="/app-avis" routerLinkActive="active">GESTION
+              DES AVIS</a>
+
+
             <!--MENU SANS LIENS POUR-->
             <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
             <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
@@ -103,7 +109,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a routerLink="/app-avis" routerLinkActive="active">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -115,7 +121,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -125,7 +131,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -137,7 +143,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -147,7 +153,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -159,7 +165,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -168,7 +174,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -180,7 +186,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -189,7 +195,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -201,7 +207,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -211,7 +217,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -223,7 +229,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -233,7 +239,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -245,7 +251,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -254,7 +260,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -266,7 +272,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
@@ -276,7 +282,7 @@
                     <tr>
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="image/pdphomme.png">KANG IN LEE
                         </a>
                       </td>
@@ -288,7 +294,7 @@
 
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="dashboardadmin.html">
+                        <a href="/app-modifier">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
