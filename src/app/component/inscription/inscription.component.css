@@ -28,20 +28,46 @@
     font-weight: bold; 
 }
 
-
 .btn-submit {
-    background-color: #63E189;
-    color: rgb(0, 0, 0); 
-    border: 2px solid #000000;
-    padding: 15px 30px;
-    font-size: 18px;
-    font-weight: bold; 
-    border-radius: 5px; 
-    width: auto; 
-    text-align: center; 
+    
+    color: #000;
+    font-weight: bold;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-submit:hover {
+    
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-submit:disabled {
+    background-color: #6bc170;
+    color: #000000;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 .btn-submit-container {
-    text-align: left; 
-    margin-top: 20px; 
+    margin-top: 20px;
+}
+
+.alert-container {
+    animation: fadeInDown 0.5s ease-in-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

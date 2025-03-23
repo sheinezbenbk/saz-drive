@@ -3,7 +3,6 @@ import { OnInit } from '@angular/core';
 import { Eleve } from '../../model/eleve.model';
 import { ApiService } from '../../service/api.service';
 
-
 @Component({
   selector: 'app-admin',
   standalone: false,
@@ -27,7 +26,7 @@ export class AdminComponent implements OnInit {
       next: (data) => {
         this.eleves = data;
         this.loading = false;
-        console.log('Élèves chargés:', this.chargerEleves());
+        console.log('Élèves chargés:', this.eleves); // Correction ici
       },
       error: (error) => {
         console.error('Erreur lors du chargement des élèves', error);
