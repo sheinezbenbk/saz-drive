@@ -1,47 +1,62 @@
 <section class="mx-4">
-    <!--TITRE AVEC LE PRENOM-->
-    <div class="mt-5"></div>
-    <h2 class="fw-bolder mx-3">BIENVENUE ABI</h2>
-    <p class="mx-3 fw-medium" style="color: #656273;">AVEC SAZ DRIVE, ENTRAÎNEZ VOUS DANS LES MEILLEURS CONDITIONS,
-        PROGRESSEZ LE
-        PLUS RAPIDEMENT POSSIBLE <br>EN VISUALISANT VOS STATISTIQUES ! VOUS ÊTES PROCHES DU PERMIS ! </p>
-    <div class="container-fluid">
-        <div class="row">
-
+  
             <!--CARTE PHOTO DE PROFIL-->
-            <div class="col-md-3">
-                <div class="card rounded-4 border-4 border-dark" style="height: 436px; box-shadow: -3px 3px 0px black;">
-                    <img class="card-img-top mt-3 " src="image/pdphomme.png" style="height: 70px; width: 70px;">
-                    <div class="card-body">
-                        <p class="card-title">Mon profil</p>
+            <section class="mx-4">
+                <!--TITRE AVEC LE PRENOM-->
+                <div class="mt-5"></div>
+                <h2 class="fw-bolder mx-3" *ngIf="userData">BIENVENUE {{ userData.prenom }}</h2>
+                <p class="mx-3 fw-medium" style="color: #656273;">AVEC SAZ DRIVE, ENTRAÎNEZ VOUS DANS LES MEILLEURS CONDITIONS,
+                    PROGRESSEZ LE
+                    PLUS RAPIDEMENT POSSIBLE <br>EN VISUALISANT VOS STATISTIQUES ! VOUS ÊTES PROCHES DU PERMIS ! </p>
+                    
+                <!-- Message de chargement ou d'erreur -->
+                <div *ngIf="loading" class="alert alert-info">Chargement de vos informations...</div>
+                <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+                
+                <div class="container-fluid" *ngIf="userData && !loading">
+                    <div class="row">
+            
+                        <!--CARTE PHOTO DE PROFIL-->
+                        <div class="col-md-3">
+                            <div class="card rounded-4 border-4 border-dark" style="height: 436px; box-shadow: -3px 3px 0px black;">
+                                <img class="card-img-top mt-3" [src]="userData.photo || 'image/pdphomme.png'" style="height: 70px; width: 70px;">
+                                <div class="card-body">
+                                    <p class="card-title">Mon profil</p>
+            
+                                    <!--TOUTES LES COORDONNÉES DE LA PERSONNE-->
+                                    <p class="card-title text-decoration-underline fw-medium">{{ userData.nom }} {{ userData.prenom }}</p>
+                                
+                                    <div style="display: flex; align-items: center;">
+                                        <img src="icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
+                                        <p class="card-text text-decoration-underline mt-2 mx-4">{{ userData.telephone || 'Non renseigné' }}</p>
+                                    </div>
+            
+                                    <div style="display: flex; align-items: center;" class="mt-3">
+                                        <img src="icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
+                                        <p class="card-text text-decoration-underline mx-4">{{ userData.datedenaissance || 'Non renseigné' }}</p>
+                                    </div>
 
-                        <!--TOUTES LES COORDONNÉES DE LA PERSONNE-->
-                        <p class="card-title text-decoration-underline fw-medium">VIGNESWARAN ABI</p>
-                        <div style="display: flex; align-items: center;">
-                            <img src="icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
-                            <p class="card-text text-decoration-underline mt-2 mx-4">09 45 75 21 90</p>
+                                    <div style="display: flex; align-items: center;" class="mt-3">
+                                        <img src="icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
+                                        <p class="card-text mt-2 text-decoration-underline mx-4">{{ userData.ville || 'Non renseigné' }}<span *ngIf="userData.ville">, France</span></p>
+                                    </div>
+                                    
+                                    <div style="display: flex; align-items: center;" class="mt-2">
+                                        <p class="card-text fw-semibold mt-3">NEPH </p>
+                                        <p class="card-text text-decoration-underline mx-2">{{ userData.code_neph || 'Non renseigné' }}</p>
+                                    </div>
+                                    <div style="display: flex; align-items: center;">
+                                        <img src="icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
+                                        <p class="card-text mt-2 text-decoration-underline mx-4">{{ userData.email || 'Non renseigné' }}</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-
-                        <div style="display: flex; align-items: center;" class="mt-3">
-                            <img src="icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
-                            <p class="card-text text-decoration-underline mx-4">09/03/2005</p>
-                        </div>
-                        <div style="display: flex; align-items: center;" class="mt-3">
-                            <img src="icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
-                            <p class="card-text mt-2  text-decoration-underline mx-4">Chelles<span>, France</span></p>
-                        </div>
-                        <div style="display: flex; align-items: center;" class="mt-2">
-                            <p class="card-text fw-semibold mt-3">NEPH </p>
-                            <p class="card-text text-decoration-underline mx-2">1534577778.6667</p>
-                        </div>
-                        <div style="display: flex; align-items: center;">
-                            <img src="icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
-                            <p class="card-text mt-2 text-decoration-underline mx-4">vigneswaranabi&#64;gmail.com</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            
+                        <!-- Reste de votre template HTML avec les adaptations pour utiliser userData -->
+                        <!-- ... -->
+            
+          
             <!--COLONNE MES RESULTATS D'ADMISSIONS + ON S'ENTRAINE ? -->
             <div class="col-md-4">
                 <div class="row">

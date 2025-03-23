@@ -1,47 +1,47 @@
+    <!-- connexion.component.html - ajoutez ceci au début de votre template -->
+    <div *ngIf="showLogoutAlert" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+        Vous avez été déconnecté avec succès !
+        <button type="button" class="btn-close" (click)="showLogoutAlert = false" aria-label="Close"></button>
+      </div>
+
 <div class="login-form">
     <h1>SAZ'DRIVE</h1>
     <h2>SE CONNECTER</h2>
     <p>AVEC SAZ'DRIVE, RÉTIVE TON CODE GRATUITEMENT ET APPRENDS À CONDUIRE SANS STRESS.</p>
-
-    <form>
-        <div class="form-group">
-            <label for="email">ADRESSE EMAIL</label>
-            <input type="email" id="email" placeholder="VEUILLEZ ENTRER VOTRE ADRESSE E-MAIL...">
+  
+    <form (ngSubmit)="onSubmit($event)">
+      <div class="form-group">
+        <label for="email">ADRESSE EMAIL</label>
+        <input type="email" id="email" [(ngModel)]="mail" name="email" required
+          placeholder="VEUILLEZ ENTRER VOTRE ADRESSE E-MAIL...">
+      </div>
+  
+      <div class="form-group">
+        <label for="password">MOT DE PASSE</label>
+        <div class="password-field">
+          <input [type]="passwordVisible ? 'text' : 'password'" id="password" [(ngModel)]="password" name="password"
+            required placeholder="VEUILLEZ ENTRER VOTRE MOT DE PASSE...">
+          <button type="button" class="eye-button" (click)="togglePassword()">
+            {{ passwordVisible ? '👁️' : '👁️‍🗨️' }}
+          </button>
         </div>
-
-        <div class="form-group">
-            <label for="password">MOT DE PASSE</label>
-            <div class="password-field">
-               
-                <input [type]="passwordVisible ? 'text' : 'password'" id="password"
-                    placeholder="VEUILLEZ ENTRER VOTRE MOT DE PASSE...">
-
-           
-                <button type="button" class="eye-button" (click)="togglePassword()">
-                    {{ passwordVisible ? '👁️' : '👁️‍🗨️' }}
-                </button>
-            </div>
-        </div>
-
-
-        <div class="mot-de-passe-oublie">
-            <a href="#" (click)="afficherAlerte($event)">MOT DE PASSE OUBLIÉ?</a>
-        </div>
-
-        <div class="alert alert-warning alert-dismissible fade show alert-custom" role="alert"  *ngIf="alerteVisible">
-            <p>Un e-mail vous a été envoyé avec des instructions pour réinitialiser votre mot de passe.
-            </p>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-          </div>
-        
-
-
-        <button type="submit" class="connexion-btn">CONNEXION</button>
+      </div>
+  
+      <button type="submit" class="connexion-btn">CONNEXION</button>
     </form>
-</div>
-
-<div class="image-container">
-    <div class="image-wrapper">
-        <img src="image/route.jpg" alt="Vue de route de voiture">
+  
+    <!-- Affichage des messages de succès ou d'erreur -->
+    <div *ngIf="message" class="success-message">
+      {{ message }}
     </div>
-</div>
+  
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
+  
+  <div class="image-container">
+    <div class="image-wrapper">
+      <img src="image/route.jpg" alt="Vue de route de voiture">
+    </div>
+  </div>

@@ -19,6 +19,7 @@ import { ModifierComponent } from './component/modifier/modifier.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AvisComponent } from './component/avis/avis.component';
 import { PageavisComponent } from './component/pageavis/pageavis.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,7 @@ import { PageavisComponent } from './component/pageavis/pageavis.component';
     EntrainementComponent,
     InscriptionComponent,
     DashboardComponent,
-    DashboardadminComponent,
+    
     AvisComponent,
     PageavisComponent,
     
@@ -42,7 +43,9 @@ import { PageavisComponent } from './component/pageavis/pageavis.component';
     ConnexionComponent,
     ModifierComponent,
     BrowserModule,
+    DashboardadminComponent,
     AppRoutingModule,
+    HttpClientModule, 
     NgbModule
   ],
   providers: [],

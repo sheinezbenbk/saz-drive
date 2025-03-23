@@ -24,7 +24,7 @@ const routes: Routes = [
   {path: 'app-entrainement', component: EntrainementComponent}, 
   {path: 'app-inscription', component: InscriptionComponent}, 
   {path:'app-dashboard', component:DashboardComponent}, 
-  {path:'app-dashboardadmin', component:DashboardadminComponent}, 
+  {path:'app-dashboardadmin/:id', component:DashboardadminComponent}, 
   {path:'app-modifier', component:ModifierComponent}, 
   {path:'app-avis', component:AvisComponent}, 
   {path:'app-pageavis', component:PageavisComponent}, 

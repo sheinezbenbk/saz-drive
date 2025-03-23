@@ -10,34 +10,30 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav flex-column mx-1">
               <a class="navbar-brand" href="#">
-                <img src="image/SAZ'DRIVE.png" style="height: 120px;"routerLink="/app-accueil" routerLinkActive="active">
+                <img src="image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
               </a>
   
               <div class="d-block d-sm-none">
-                <a class="nav-link fw-semibold" href=""
-                  style="text-decoration: none; color: #000000;">CODE DE LA ROUTE</a>
-                <a class="nav-link fw-semibold" href=""
-                  style="text-decoration: none; color: #000000;">PERMIS DE CONNDUIRE</a>
-                <a class="nav-link fw-semibold" href=""
-                  style="text-decoration: none; color: #000000;">RÉSULTATS</a>
-                <a class="nav-link fw-semibold" href=""
-                  style="text-decoration: none; color: #000000;">À PROPOS</a>
-                <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
-              </div>
-  
-              <div class="d-none d-sm-block d-lg-none">
-                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">CODE DE LA
-                  ROUTE</a>
-                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">PERMIS DE
-                  CONNDUIRE</a>
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">CODE DE LA ROUTE</a>
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">PERMIS DE CONNDUIRE</a>
                 <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">RÉSULTATS</a>
                 <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">À PROPOS</a>
                 <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
               </div>
-              <div class="d-flex align-items-center">
-                <img class="rounded" src="icone/iconelogout.png" alt="" style="height: 20px; width: 20px;">
-                <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">DECONNEXION</a>
+  
+              <div class="d-none d-sm-block d-lg-none">
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">CODE DE LA ROUTE</a>
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">PERMIS DE CONNDUIRE</a>
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">RÉSULTATS</a>
+                <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">À PROPOS</a>
+                <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
               </div>
+  
+              <div class="d-flex align-items-center">
+                <img class="rounded" src="icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
+                <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="javascript:void(0);" (click)="logout()">DÉCONNEXION</a>
+              </div>
+  
               <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
               <div class="d-flex align-items-center mt-3">
                 <img class="rounded" src="icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
@@ -48,10 +44,8 @@
                 <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
               </div>
-              <a class="nav-link mt-2 fw-medium menuvertical" href=""
-                style="text-decoration: none; color: #000000;" routerLink="/app-admin" routerLinkActive="active" >LISTES DES ÉLÈVES</a>
-              <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription" routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
-                ÉLÈVE</a>
+              <a class="nav-link mt-2 fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;" routerLink="/app-admin" routerLinkActive="active">LISTES DES ÉLÈVES</a>
+              <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription" routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN ÉLÈVE</a>
               <a class="nav-link fw-medium menuvertical" routerLink="/app-avis" routerLinkActive="active" style="text-decoration: none; color: #000000;">GESTION DES AVIS</a>
               <!--MENU SANS LIENS POUR-->
               <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
@@ -69,197 +63,183 @@
               <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
               <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
               <a class="nav-link mt-5 menuvertical" style="text-decoration: none; color: #000000;"></a>
-  
             </ul>
           </div>
         </nav>
       </div>
-      
-<div class="col-12 col-sm-9 col-xl-10">
-    <!-- PARTIE LISTE DES ÉLÈVES -->
-    <div class="container-fluid">
-        <div class="row mt-5">
+  
+      <div class="col-12 col-sm-9 col-xl-10">
+        <!-- Message de chargement -->
+        <div *ngIf="loading" class="d-flex justify-content-center mt-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Chargement...</span>
+          </div>
+        </div>
+  
+        <!-- Message d'erreur -->
+        <div *ngIf="error" class="alert alert-danger mt-5 mx-4" role="alert">
+          {{ error }}
+        </div>
+  
+        <!-- Contenu principal - n'afficher que si les données sont chargées -->
+        <div *ngIf="!loading && !error" class="container-fluid">
+          <div class="row mt-5">
             <div class="col-md-12 col-lg-12 col-xl-5">
-                <h3 class="ms-4 fw-bolder">BIENVENUE DANS LE DASHBOARD DE <span>ABI</span></h3>
-                <p class="ms-4 mt-1 fw-medium text-secondary">DÉCOUVREZ TOUS LES ÉLÈVES PRÉSENTS DANS LA SAZ TEAM,
-                    VISUALISEZ LEURS RÉSULTATS, LEUR ÉVOLUTION, MODIFIEZ LEURS COORDONNÉES..</p>
+              <h3 class="ms-4 fw-bolder">BIENVENUE DANS LE DASHBOARD DE <span>{{userData.prenom}}</span></h3>
+              <p class="ms-4 mt-1 fw-medium text-secondary">DÉCOUVREZ TOUS LES ÉLÈVES PRÉSENTS DANS LA SAZ TEAM,
+                VISUALISEZ LEURS RÉSULTATS, LEUR ÉVOLUTION, MODIFIEZ LEURS COORDONNÉES..</p>
             </div>
             <!-- PARTIE TABLEAU DES ÉLÈVES -->
             <div class="col-md-12 col-lg-12 col-xl-12">
-                <div class="container-fluid">
-                    <div class="row">
-
-                        <!--CARTE PHOTO DE PROFIL-->
-                        <div class="col-md-3">
-                            <div class="card rounded-4 border-4 border-dark"
-                                style="height: 436px; box-shadow: -3px 3px 0px black;">
-                                <img class="card-img-top mt-3 " src="image/pdphomme.png"
-                                    style="height: 70px; width: 70px;">
-                                <div class="card-body">
-                                    <p class="card-title">Mon profil</p>
-
-                                    <!--TOUTES LES COORDONNÉES DE LA PERSONNE-->
-                                    <p class="card-title text-decoration-underline fw-medium">VIGNESWARAN ABI</p>
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
-                                        <p class="card-text text-decoration-underline mt-2 mx-4">09 45 75 21 90</p>
-                                    </div>
-
-                                    <div style="display: flex; align-items: center;" class="mt-3">
-                                        <img src="icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
-                                        <p class="card-text text-decoration-underline mx-4">09/03/2005</p>
-                                    </div>
-                                    <div style="display: flex; align-items: center;" class="mt-3">
-                                        <img src="icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
-                                        <p class="card-text mt-2  text-decoration-underline mx-4">Chelles<span>,
-                                                France</span></p>
-                                    </div>
-                                    <div style="display: flex; align-items: center;" class="mt-2">
-                                        <p class="card-text fw-semibold mt-3">NEPH </p>
-                                        <p class="card-text text-decoration-underline mx-2">1534577778.6667</p>
-                                    </div>
-                                    <div style="display: flex; align-items: center;">
-                                        <img src="icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
-                                        <p class="card-text mt-2 text-decoration-underline mx-4">
-                                            vigneswaranabi&#64;gmail.com</p>
-                                    </div>
-                                </div>
-                            </div>
+              <div class="container-fluid">
+                <div class="row">
+  
+                  <!--CARTE PHOTO DE PROFIL-->
+                  <div class="col-md-3">
+                    <div class="card rounded-4 border-4 border-dark" style="height: 436px; box-shadow: -3px 3px 0px black;">
+                      <img class="card-img-top mt-3" [src]="userData.photo_url || 'image/pdphomme.png'" style="height: 70px; width: 70px;">
+                      <div class="card-body">
+                        <p class="card-title">Mon profil</p>
+  
+                        <!--TOUTES LES COORDONNÉES DE LA PERSONNE-->
+                        <p class="card-title text-decoration-underline fw-medium">{{userData.nom}} {{userData.prenom}}</p>
+                        <div style="display: flex; align-items: center;">
+                          <img src="icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
+                          <p class="card-text text-decoration-underline mt-2 mx-4">{{userData.telephone || 'Non renseigné'}}</p>
                         </div>
-
-                        <!-- RÉSULTATS D'ADMISSION-->
-                        <div class="col-md-4">
-
-                            <!-- CARTE MES RÉSULTATS D'ADMISSION -->
-                            <div class="card text-dark rounded-4 border-4 border-dark mb-3"
-                                style="background-color: #BFA7F1; height: 290px; box-shadow: 0px 2px 0px black;">
-                                <h6 class="card-title mt-4 fw-bolder px-3">SES RÉSULTATS D'ADMISSION</h6>
-                                <p class="card-text mx-3 fw-medium">RÉSULTAT DE SON DERNIER EXAMEN</p>
-                                <!-- GRAPHIQUES -->
-                                <div class="row">
-                                    <div class="col-6">
-                                        <!-- GRAPHIQUE EN % -->
-                                    </div>
-                                    <div class="col-6">
-                                        <!-- GRAPHIQUE SUR 40 -->
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!--FÉLICITATION -->
-                            <div class="card rounded-4 border-4 border-dark"
-                                style="height: 135px; background-color: #36CA62; box-shadow: 0px 4px 0px black;">
-                                <div class="d-flex align-items-center">
-                                    <p class="card-text fw-semibold mt-4 ms-3">MAIS C'EST UN CRACK ! FÉLICITATION, IL A
-                                        ATTEINT LES
-                                        80% ! NOUS DEVONS LUI DONNER UN FORMATEUR ET VITE !</p>
-                                    <img src="icone/confétit.png" style="height: 80px;" class="mt-3">
-                                </div>
-                            </div>
-
+  
+                        <div style="display: flex; align-items: center;" class="mt-3">
+                          <img src="icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
+                          <p class="card-text text-decoration-underline mx-4">{{userData.datedenaissance || 'Non renseigné'}}</p>
                         </div>
-
-                        <!--MON HISTORIQUE-->
-                        <div class="col-md-5 rounded-4"
-                            style="height: 1030px; background-color: #FFD24F; border: 4px solid; box-shadow: 3px 3px 0px black;">
-                            <div class="mt-3 d-flex align-items-center ">
-                                <h6 class="fw-bolder mt-3 px-3">MON HISTORIQUE</h6>
-                                <img src="icone/Historique.png" alt="" style="height: 20px;" class="ms-auto mx-4">
-                            </div>
-                            <!--TABLEAU-->
-                            <main class="table" id="customers_table">
-                                <section class="table__body">
-                                    <table>
-                                        <tbody>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                            <!--DATE HEURE-->
-                                            <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                            <!--NOM EXAM + NOTE-->
-                                            <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA ROUTE<br><br>
-                                                35/40 </td>
-                                            </tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                            <tr>
-                                                <!--DATE HEURE-->
-                                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
-                                                <!--NOM EXAM + NOTE-->
-                                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA
-                                                    ROUTE<br><br> 35/40 </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </section>
-                            </main>
+                        <div style="display: flex; align-items: center;" class="mt-3">
+                          <img src="icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
+                          <p class="card-text mt-2 text-decoration-underline mx-4">{{userData.ville || 'Non renseigné'}}<span>, France</span></p>
                         </div>
-                        <div class="row mt-3">
-                            <section
-                                style="background-color: #BFA7F1; border: 4px solid; margin-top: -590px; max-height: 575px;"
-                                class="col-md-7 rounded-4">
-                                <div class="row mt-3">
-                                    <h5 class="fw-bold mt-3 mx-3">STATISTIQUES</h5>
-                                    <p class="fw-medium mx-3" style="color: #656273; font-size: 14px;">
-                                        VISUALISEZ L'ENSEMBLE DE VOS ENTRAINEMENTS SOUS FORME DE STATISTIQUES, <br>
-                                        OBSERVEZ VOTRE PROGRESSION DANS LA MEILLEURE DES MANIÈRES
-                                    </p>
-                                </div>
-                                <div>
-                                    <canvas id="myChart" class="" style="max-height: 420px;"></canvas>
-                                </div>
-                            </section>
+                        <div style="display: flex; align-items: center;" class="mt-2">
+                          <p class="card-text fw-semibold mt-3">NEPH </p>
+                          <p class="card-text text-decoration-underline mx-2">{{userData.code_neph || 'Non renseigné'}}</p>
                         </div>
+                        <div style="display: flex; align-items: center;">
+                          <img src="icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
+                          <p class="card-text mt-2 text-decoration-underline mx-4">{{userData.email || 'Non renseigné'}}</p>
+                        </div>
+                      </div>
                     </div>
+                  </div>
+  
+                  <!-- RÉSULTATS D'ADMISSION-->
+                  <div class="col-md-4">
+  
+                    <!-- CARTE MES RÉSULTATS D'ADMISSION -->
+                    <div class="card text-dark rounded-4 border-4 border-dark mb-3" style="background-color: #BFA7F1; height: 290px; box-shadow: 0px 2px 0px black;">
+                      <h6 class="card-title mt-4 fw-bolder px-3">SES RÉSULTATS D'ADMISSION</h6>
+                      <p class="card-text mx-3 fw-medium">RÉSULTAT DE SON DERNIER EXAMEN</p>
+                      <!-- GRAPHIQUES -->
+                      <div class="row">
+                        <div class="col-6">
+                          <!-- GRAPHIQUE EN % -->
+                          <div class="d-flex justify-content-center">
+                            <div class="rounded-circle border border-dark border-3 d-flex justify-content-center align-items-center" style="width: 100px; height: 100px; background-color: #F3A0D5;">
+                              <h5 class="fw-bold mb-0">
+                                {{userData.dernierExamen?.pourcentage || '0'}}%
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-6">
+                          <!-- GRAPHIQUE SUR 40 -->
+                          <div class="d-flex justify-content-center">
+                            <div class="rounded-circle border border-dark border-3 d-flex justify-content-center align-items-center" style="width: 100px; height: 100px; background-color: #F3A0D5;">
+                              <h5 class="fw-bold mb-0">
+                                {{userData.dernierExamen?.note || '0'}}/40
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+  
+                    <!--FÉLICITATION OU MESSAGE ADAPTÉ AU STATUT-->
+                    <div class="card rounded-4 border-4 border-dark" ngStyle="{'background-color': userData.statut === 'ADMIS' ? '#36CA62' : '#FFD24F', 'height': '135px', 'box-shadow': '0px 4px 0px black'}">
+                      <div class="d-flex align-items-center">
+                        <p class="card-text fw-semibold mt-4 ms-3">
+                          <span *ngIf="userData.statut === 'ADMIS'">
+                            MAIS C'EST UN CRACK ! FÉLICITATION, IL A ATTEINT LES 80% ! NOUS DEVONS LUI DONNER UN FORMATEUR ET VITE !
+                          </span>
+                          <span *ngIf="userData.statut !== 'ADMIS'">
+                            IL FAUT CONTINUER À TRAVAILLER ! AVEC DE LA PERSÉVÉRANCE, LES RÉSULTATS VONT S'AMÉLIORER.
+                          </span>
+                        </p>
+                        <img *ngIf="userData.statut === 'ADMIS'" src="icone/confétit.png" style="height: 80px;" class="mt-3">
+                      </div>
+                    </div>
+  
+                  </div>
+  
+                  <!--MON HISTORIQUE-->
+                  <div class="col-md-5 rounded-4" style="height: 1030px; background-color: #FFD24F; border: 4px solid; box-shadow: 3px 3px 0px black;">
+                    <div class="mt-3 d-flex align-items-center">
+                      <h6 class="fw-bolder mt-3 px-3">MON HISTORIQUE</h6>
+                      <img src="icone/Historique.png" alt="" style="height: 20px;" class="ms-auto mx-4">
+                    </div>
+                    <!--TABLEAU-->
+                    <main class="table" id="customers_table">
+                      <section class="table__body">
+                        <table>
+                          <tbody>
+                            <!-- Message si aucun historique -->
+                            <tr *ngIf="!userData.examens || userData.examens.length === 0">
+                              <td colspan="2" class="text-center">Aucun examen enregistré</td>
+                            </tr>
+  
+                            <!-- Affichage des examens dynamiquement -->
+                            <tr *ngFor="let examen of userData.examens">
+                              <!--DATE HEURE-->
+                              <td class="fw-semibold">
+                                {{examen.date}} <br><br>{{examen.heure}}
+                              </td>
+                              <!--NOM EXAM + NOTE-->
+                              <td class="text-end px-4 fw-semibold">
+                                {{examen.nom}}<br><br> {{examen.note}}/40
+                              </td>
+                            </tr>
+  
+                            <!-- Données statiques si nécessaire -->
+                            <ng-container *ngIf="!userData.examens || userData.examens.length === 0">
+                              <tr>
+                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
+                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA ROUTE<br><br> 35/40 </td>
+                              </tr>
+                              <tr>
+                                <td class="fw-semibold">Lun, 10 Mars <br><br>8:35</td>
+                                <td class="text-end px-4 fw-semibold">EXAMEN BLANC CODE DE LA ROUTE<br><br> 35/40 </td>
+                              </tr>
+                            </ng-container>
+                          </tbody>
+                        </table>
+                      </section>
+                    </main>
+                  </div>
+                  <div class="row mt-3">
+                    <section style="background-color: #BFA7F1; border: 4px solid; margin-top: -590px; max-height: 575px;" class="col-md-7 rounded-4">
+                      <div class="row mt-3">
+                        <h5 class="fw-bold mt-3 mx-3">STATISTIQUES</h5>
+                        <p class="fw-medium mx-3" style="color: #656273; font-size: 14px;">
+                          VISUALISEZ L'ENSEMBLE DE VOS ENTRAINEMENTS SOUS FORME DE STATISTIQUES, <br>
+                          OBSERVEZ VOTRE PROGRESSION DANS LA MEILLEURE DES MANIÈRES
+                        </p>
+                      </div>
+                      <div>
+                        <canvas id="myChart" class="" style="max-height: 420px;"></canvas>
+                      </div>
+                    </section>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>

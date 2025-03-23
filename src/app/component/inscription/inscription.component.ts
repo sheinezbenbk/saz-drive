@@ -1,5 +1,8 @@
 
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../../service/api.service';
+import { AuthService } from '../../service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-inscription',
@@ -30,4 +33,24 @@ export class InscriptionComponent implements OnInit {
       const startYear = 1900;
       this.years = Array.from({ length: currentYear - startYear + 1 }, (_, i) => currentYear - i);
   }
+
+
+  constructor(
+      private apiService: ApiService, 
+      private router: Router,
+      private authService: AuthService
+    ) {}
+  
+    logout() {
+      this.apiService.logout().subscribe({
+        next: (response: any) => {
+          console.log(response.message);
+          this.authService.setLogoutMessage(true);
+          this.router.navigate(['/app-connexion']); // Redirection vers la page de connexion
+        },
+        error: (error) => {
+          console.error('Erreur lors de la déconnexion:', error);
+        }
+      });
+    }
 }

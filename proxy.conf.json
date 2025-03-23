@@ -1,0 +1,11 @@
+{
+    "/api": {
+      "target": "http://localhost/sazdrive",
+      "secure": false,
+      "pathRewrite": {
+        "^/api": ""
+      },
+      "changeOrigin": true
+    }
+  }
+  

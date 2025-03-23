@@ -103,203 +103,49 @@
                       <th class="text-end"> MODIFIER</th>
                     </tr>
                   </thead>
+
+
                   <!-- CORPS DU TABLEAU AVEC TOUT LES ÉLÈVES -->
                   <tbody>
-                    <!-- LIGNE 1 -->
-                    <tr>
+
+
+                    <tr *ngIf="loading">
+                      <td colspan="3" class="text-center">Chargement des élèves...</td>
+                    </tr>
+                    <tr *ngIf="error">
+                      <td colspan="3" class="text-center text-danger">{{ error }}</td>
+                    </tr>
+
+
+                    <tr *ngFor="let eleve of eleves">
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a routerLink="/app-avis" routerLinkActive="active">
-                          <img src="image/pdphomme.png">KANG IN LEE
+                        <a [routerLink]="['/app-dashboardadmin', eleve.id]">
+                          <img src="image/pdphomme.png">{{ eleve.nom }} {{ eleve.prenom }}
                         </a>
                       </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
+                  
+                      <!-- RÉSULTAT D'ADMISSION -->
                       <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
+                        <p class="fw-semibold" [ngClass]="getStatusClass(eleve.statut)">
+                          ÉLÈVE {{ eleve.statut }}
+                        </p>
                       </td>
-
+                  
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a href="/app-modifier">
+                        <a [routerLink]="['/app-modifier', eleve.id]">
                           <img src="icone/crayon.png">
                         </a>
                       </td>
                     </tr>
 
-                    <!-- LIGNE 2 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status cancelled">ÉLÈVE NON ADMIS </p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
+                    <tr *ngIf="eleves.length === 0 && !loading && !error">
+                      <td colspan="3" class="text-center">Aucun élève trouvé</td>
                     </tr>
-
-                    <!-- LIGNE 3 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-                    <!-- LIGNE 4 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-                    <!-- LIGNE 5 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status cancelled">ÉLÈVE NON ADMIS </p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-
-                    <!-- LIGNE 6 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-
-                    <!-- LIGNE 7 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-                    <!-- LIGNE 8 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status cancelled">ÉLÈVE NON ADMIS </p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
-
-                    <!-- LIGNE 9 -->
-                    <tr>
-                      <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
-                      <td class="fw-semibold">
-                        <a href="/app-modifier">
-                          <img src="image/pdphomme.png">KANG IN LEE
-                        </a>
-                      </td>
-
-                      <!-- RÉSULAT D'ADMISSION -->
-                      <td>
-                        <p class="fw-semibold status delivered">ÉLÈVE ADMIS</p>
-                      </td>
-
-                      <!-- BOUTON POUR MODIFIER -->
-                      <td class="text-end px-4">
-                        <a href="/app-modifier">
-                          <img src="icone/crayon.png">
-                        </a>
-                      </td>
-                    </tr>
+                  
                   </tbody>
+
                 </table>
               </section>
             </main>
