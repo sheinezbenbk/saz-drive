@@ -60,13 +60,14 @@ export class InscriptionComponent implements OnInit {
     this.years = Array.from({ length: currentYear - startYear + 1 }, (_, i) => currentYear - i);
   }
 
-  onSubmit(event:Event) {
+  onSubmit(event: Event) {
     event.preventDefault(); // Empêche le formulaire de rafraîchir la page
-  
-  if (this.inscriptionForm.invalid) {
-    this.error = 'Veuillez remplir correctement tous les champs du formulaire.';
-    return;
-  }
+    
+    if (this.inscriptionForm.invalid) {
+      this.error = 'Veuillez remplir correctement tous les champs du formulaire.';
+      this.showAlert = true;
+      return;
+    }
 
     this.loading = true;
     this.error = '';
@@ -92,16 +93,31 @@ export class InscriptionComponent implements OnInit {
       datedenaissance: dateNaissance
     };
 
+    console.log('Données à envoyer:', nouvelUtilisateur); // Ajout de log pour déboguer
+
     this.apiService.ajouterEleve(nouvelUtilisateur).subscribe({
       next: (response) => {
+        console.log('Réponse du serveur:', response); // Ajout de log pour déboguer
         this.loading = false;
-        this.message = 'Nouvel élève ajouté !';
+        this.message = 'Nouvel élève ajouté avec succès!';
         this.showAlert = true;
         this.inscriptionForm.reset();
-       
-  }});
+        
+        // Réinitialiser les valeurs par défaut pour les sélecteurs
+        this.inscriptionForm.patchValue({
+          jour: '',
+          mois: '',
+          annee: ''
+        });
+      },
+      error: (error) => {
+        console.error('Erreur lors de l\'ajout de l\'élève:', error);
+        this.loading = false;
+        this.error = `Erreur lors de l'ajout: ${error.message || 'Veuillez réessayer.'}`;
+        this.showAlert = true;
+      }
+    });
   }
-  
   
   logout() {
     this.apiService.logout().subscribe({

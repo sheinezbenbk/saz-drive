@@ -20,6 +20,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { AvisComponent } from './component/avis/avis.component';
 import { PageavisComponent } from './component/pageavis/pageavis.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -34,9 +36,9 @@ import { HttpClientModule } from '@angular/common/http';
     EntrainementComponent,
     InscriptionComponent,
     DashboardComponent,
-    
     AvisComponent,
     PageavisComponent,
+    
     
   ],
   imports: [
@@ -46,7 +48,10 @@ import { HttpClientModule } from '@angular/common/http';
     DashboardadminComponent,
     AppRoutingModule,
     HttpClientModule, 
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    FormsModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent], 

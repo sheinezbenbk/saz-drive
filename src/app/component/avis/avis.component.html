@@ -1,4 +1,10 @@
 
+<div *ngIf="message" class="container mt-3">
+  <div class="alert" [ngClass]="{'alert-success': isSuccess, 'alert-danger': isError}" role="alert">
+    {{ message }}
+  </div>
+</div>
+
 <!-- PARTIE MENU -->
 <div class="container-fluid">
     <div class="row">
@@ -11,7 +17,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav flex-column mx-1">
               <a class="navbar-brand" href="#">
-                <img src="image/SAZ'DRIVE.png" style="height: 120px;"routerLink="/app-accueil" routerLinkActive="active">
+                <img src="/image/SAZ'DRIVE.png" style="height: 120px;"routerLink="/app-accueil" routerLinkActive="active">
               </a>
   
               <div class="d-block d-sm-none">
@@ -36,17 +42,17 @@
                 <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
               </div>
               <div class="d-flex align-items-center">
-                <img class="rounded" src="assets/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="javascript:void(0);" (click)="logout()">DÉCONNEXION</a>
             </div>
               <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
               <div class="d-flex align-items-center mt-3">
-                <img class="rounded" src="icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">MENU PRINCIPAL</a>
               </div>
               <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
               <div class="d-flex align-items-center">
-                <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
               </div>
               <a class="nav-link mt-2 fw-medium menuvertical" href=""
@@ -79,163 +85,36 @@
       
 <div class="col-12 col-sm-9 col-xl-10 mb-5">
     <h3 class="fw-bolder mx-5 mt-5 text-center commentaire">LES COMMENTAIRES LAISSÉS PAR LES ÉLÈVES SUR LA PLATEFORME DE SAZ’DRIVE SONT PRIS TRÈS AU SÉRIEUX POUR AMÉLIORER LES PRESTATIONS FOURNIES PAR SAZ’DRIVE</h3>
-    <section class="container-fluid px-5">
-        <div class="row mt-4">
-        <div class="col-md-3">
-          <div class="card border-3 border-dark rounded-4">
-            <div class="card-body ">
-              <div class="d-flex align-items-center ">
-                <img src="image/“.png" class="ms-3">
-                <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-              </div>
-              <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-              <div class="d-flex align-items-center">
-                <img src="image/pdphomme.png"  style="height: 65px;"> 
-                <p class="fw-semibold" style="font-size: 14px;">
-                    ARNAUD MONTOYA
-                    <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-                </p>
-            </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-        </div>
-        <div class="col-md-3 mt-2">
-          <div class="card border-3 border-dark rounded-4">
-            <div class="card-body ">
-              <div class="d-flex align-items-center ">
-                <img src="image/“.png" class="ms-3">
-                <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-              </div>
-              <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-              <div class="d-flex align-items-center">
-                <img src="image/pdphomme.png"  style="height: 65px;">
-                <p class="fw-semibold" style="font-size: 14px;">
-                    ARNAUD MONTOYA
-                    <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-                </p>
-            </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-        </div>
-        <div class="col-md-3 mt-2">
-          <div class="card border-3 border-dark rounded-4">
-            <div class="card-body ">
-              <div class="d-flex align-items-center ">
-                <img src="image/“.png" class="ms-3">
-                <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-              </div>
-              <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-              <div class="d-flex align-items-center">
-                <img src="image/pdphomme.png"  style="height: 65px;">
-                <p class="fw-semibold" style="font-size: 14px;">
-                    ARNAUD MONTOYA
-                    <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-                </p>
-            </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-        </div>
-        <div class="col-md-3 mt-2">
-          <div class="card border-3 border-dark rounded-4">
-            <div class="card-body ">
-              <div class="d-flex align-items-center ">
-                <img src="image/“.png" class="ms-3">
-                <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-              </div>
-              <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-               <div class="d-flex align-items-center">
-                <img src="image/pdphomme.png"  style="height: 65px;">
-                <p class="fw-semibold" style="font-size: 14px;">
-                    ARNAUD MONTOYA
-                    <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-                </p>
-            </div>
-            </div>
-          </div>
-          <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-        </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-3 mt-2">
+    <div class="row mt-5 mx-5">
+ 
+      <div class="col-md-3" *ngFor="let avis of listeAvis">
         <div class="card border-3 border-dark rounded-4">
-          <div class="card-body ">
-            <div class="d-flex align-items-center ">
-              <img src="image/“.png" class="ms-3">
-              <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-            </div>
-            <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
+          <div class="card-body">
             <div class="d-flex align-items-center">
-              <img src="image/pdphomme.png"  style="height: 65px;"> 
+              <img src="/image/“.png" class="ms-3">
+              <h5 class="card-title mt-3 ms-1 fw-bold">{{ avis.titre }}</h5>
+            </div>
+            <p class="card-text mt-2 mx-3 fw-medium">{{ avis.commentaire }}</p>
+            <div class="d-flex align-items-center">
+              <img src="/image/pdphomme.png" style="height: 65px;"> 
               <p class="fw-semibold" style="font-size: 14px;">
-                  ARNAUD MONTOYA
+                  {{ avis.prenom }} {{ avis.nom }}
                   <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
               </p>
+            </div>
           </div>
-          </div>
-         
         </div>
-        <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
+        <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" 
+                style="background-color: #DF5757;" 
+                (click)="supprimerAvis(avis.id_avis)">
+          SUPPRIMER
+        </button>
       </div>
-      <div class="col-md-3 mt-2">
-        <div class="card border-3 border-dark rounded-4">
-          <div class="card-body ">
-            <div class="d-flex align-items-center ">
-              <img src="image/“.png" class="ms-3">
-              <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-            </div>
-            <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-            <div class="d-flex align-items-center">
-              <img src="image/pdphomme.png"  style="height: 65px;"> 
-              <p class="fw-semibold" style="font-size: 14px;">
-                  ARNAUD MONTOYA
-                  <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-              </p>
-          </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-      </div>
-      <div class="col-md-3 mt-2">
-        <div class="card border-3 border-dark rounded-4">
-          <div class="card-body ">
-            <div class="d-flex align-items-center ">
-              <img src="image/“.png" class="ms-3">
-              <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-            </div>
-            <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-            <div class="d-flex align-items-center">
-              <img src="image/pdphomme.png"  style="height: 65px;">
-              <p class="fw-semibold" style="font-size: 14px;">
-                  ARNAUD MONTOYA
-                  <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-              </p>
-          </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
-      </div>
-      <div class="col-md-3 mt-2">
-        <div class="card border-3 border-dark rounded-4">
-          <div class="card-body ">
-            <div class="d-flex align-items-center ">
-              <img src="image/“.png" class="ms-3">
-              <h5 class="card-title mt-3 ms-1 fw-bold">SUPER PRÉPARATION POUR LE CODE !</h5>
-            </div>
-            <p class="card-text mt-2 mx-3 fw-medium">Les cours sont de qualité, mais j'aurais préféré plus d'interactivité dans les leçons. Malgré tout, la plateforme de révision est très bien conçue, et je me suis senti bien préparé pour l'examen. Bon service global.</p>
-            <div class="d-flex align-items-center">
-              <img src="image/pdphomme.png"  style="height: 65px;"> 
-              <p class="fw-semibold" style="font-size: 14px;">
-                  ARNAUD MONTOYA
-                  <span class="fw-medium"><br>ÉLÈVE DE L'AUTO-ÉCOLE CER</span>
-              </p>
-          </div>
-          </div>
-        </div>
-        <button type="button" class="btn btn-light p-3 px-5 mt-2 rounded-4 border-3 border-dark fw-bolder" style="background-color: #DF5757;">SUPPRIMER</button>
+      
+      <!-- Message si aucun avis -->
+      <div class="col-12 text-center mt-4" *ngIf="listeAvis.length === 0">
+        <p class="fw-bold">Aucun avis n'est disponible pour le moment.</p>
       </div>
     </div>
-  </section>
+
 </div>

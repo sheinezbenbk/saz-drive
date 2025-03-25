@@ -10,7 +10,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="nav flex-column mx-1">
               <a class="navbar-brand" href="#">
-                <img src="image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
+                <img src="/image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
               </a>
   
               <div class="d-block d-sm-none">
@@ -30,18 +30,18 @@
               </div>
   
               <div class="d-flex align-items-center">
-                <img class="rounded" src="icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="javascript:void(0);" (click)="logout()">DÉCONNEXION</a>
               </div>
   
               <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
               <div class="d-flex align-items-center mt-3">
-                <img class="rounded" src="icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">MENU PRINCIPAL</a>
               </div>
               <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
               <div class="d-flex align-items-center">
-                <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
+                <img class="rounded" src="/icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
                 <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
               </div>
               <a class="nav-link mt-2 fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;" routerLink="/app-admin" routerLinkActive="active">LISTES DES ÉLÈVES</a>
@@ -97,23 +97,23 @@
                   <!--CARTE PHOTO DE PROFIL-->
                   <div class="col-md-3">
                     <div class="card rounded-4 border-4 border-dark" style="height: 436px; box-shadow: -3px 3px 0px black;">
-                      <img class="card-img-top mt-3" [src]="userData.photo_url || 'image/pdphomme.png'" style="height: 70px; width: 70px;">
+                      <img class="card-img-top mt-3" [src]="userData.photo_url || '/image/pdphomme.png'" style="height: 70px; width: 70px;">
                       <div class="card-body">
                         <p class="card-title">Mon profil</p>
   
                         <!--TOUTES LES COORDONNÉES DE LA PERSONNE-->
                         <p class="card-title text-decoration-underline fw-medium">{{userData.nom}} {{userData.prenom}}</p>
                         <div style="display: flex; align-items: center;">
-                          <img src="icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
+                          <img src="/icone/phone.png" class="mt-1" style="height: 18px; width: 20px;">
                           <p class="card-text text-decoration-underline mt-2 mx-4">{{userData.telephone || 'Non renseigné'}}</p>
                         </div>
   
                         <div style="display: flex; align-items: center;" class="mt-3">
-                          <img src="icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
+                          <img src="/icone/cake.png" class="mt-1" style="height: 18px; width: 20px;">
                           <p class="card-text text-decoration-underline mx-4">{{userData.datedenaissance || 'Non renseigné'}}</p>
                         </div>
                         <div style="display: flex; align-items: center;" class="mt-3">
-                          <img src="icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
+                          <img src="/icone/lieux.png" class="mt-2" style="height: 20px; width: 20px;">
                           <p class="card-text mt-2 text-decoration-underline mx-4">{{userData.ville || 'Non renseigné'}}<span>, France</span></p>
                         </div>
                         <div style="display: flex; align-items: center;" class="mt-2">
@@ -121,7 +121,7 @@
                           <p class="card-text text-decoration-underline mx-2">{{userData.code_neph || 'Non renseigné'}}</p>
                         </div>
                         <div style="display: flex; align-items: center;">
-                          <img src="icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
+                          <img src="/icone/email.png" class="mt-2" style="height: 20px; width: 20px;">
                           <p class="card-text mt-2 text-decoration-underline mx-4">{{userData.email || 'Non renseigné'}}</p>
                         </div>
                       </div>

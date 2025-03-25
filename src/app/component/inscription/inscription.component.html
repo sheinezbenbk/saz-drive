@@ -10,7 +10,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="nav flex-column mx-1">
             <a class="navbar-brand" href="#">
-              <img src="image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
+              <img src="/image/SAZ'DRIVE.png" style="height: 120px;" routerLink="/app-accueil" routerLinkActive="active">
             </a>
 
             <div class="d-block d-sm-none">
@@ -34,19 +34,19 @@
             </div>
 
             <div class="d-flex align-items-center">
-              <img class="rounded" src="assets/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
+              <img class="rounded" src="/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
               <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="javascript:void(0);"
                 (click)="logout()">DÉCONNEXION</a>
             </div>
 
             <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
             <div class="d-flex align-items-center mt-3">
-              <img class="rounded" src="icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
+              <img class="rounded" src="/icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
               <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">MENU PRINCIPAL</a>
             </div>
             <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
             <div class="d-flex align-items-center">
-              <img class="rounded" src="icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
+              <img class="rounded" src="/icone/iconedossier.png" alt="" style="height: 20px; width: 20px;">
               <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
             </div>
             <a class="nav-link mt-2 fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;"
@@ -91,26 +91,37 @@
           </div>
 
           <div class="image-container">
-            <img src="image/homme.png" alt="Vue de route de voiture" class="img-fluid">
+            <img src="/image/homme.png" alt="Vue de route de voiture" class="img-fluid">
           </div>
         </div>
-
-       
-
 
         <!-- le formulaire -->
         <div class="col-md-6">
           <div class="form-container">
-            <form formGroup="inscriptionForm" (ngSubmit)="onSubmit($event)">
+            <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit($event)">
+              <!-- Messages d'erreur/succès en haut du formulaire -->
+              <div *ngIf="error" class="alert alert-danger mb-4">
+                {{ error }}
+              </div>
+              <div *ngIf="message" class="alert alert-success mb-4">
+                {{ message }}
+              </div>
+              
               <!-- Nom et Prénom -->
               <div class="row mb-3">
                 <div class="col-md-6">
                   <label for="nom" class="form-label">Nom</label>
                   <input type="text" class="form-control" id="nom" formControlName="nom" placeholder="Nom">
+                  <div *ngIf="inscriptionForm.get('nom')?.invalid && inscriptionForm.get('nom')?.touched" class="text-danger">
+                    Nom requis
+                  </div>
                 </div>
                 <div class="col-md-6">
                   <label for="prenom" class="form-label">Prénom</label>
                   <input type="text" class="form-control" id="prenom" formControlName="prenom" placeholder="Prénom">
+                  <div *ngIf="inscriptionForm.get('prenom')?.invalid && inscriptionForm.get('prenom')?.touched" class="text-danger">
+                    Prénom requis
+                  </div>
                 </div>
               </div>
 
@@ -132,6 +143,11 @@
                       <option *ngFor="let year of years" [value]="year">{{ year }}</option>
                     </select>
                   </div>
+                  <div *ngIf="(inscriptionForm.get('jour')?.invalid && inscriptionForm.get('jour')?.touched) || 
+                              (inscriptionForm.get('mois')?.invalid && inscriptionForm.get('mois')?.touched) ||
+                              (inscriptionForm.get('annee')?.invalid && inscriptionForm.get('annee')?.touched)" class="text-danger">
+                    Date de naissance complète requise
+                  </div>
                 </div>
 
                 <!-- Téléphone -->
@@ -139,6 +155,9 @@
                   <label for="telephone" class="form-label">Téléphone</label>
                   <input type="tel" class="form-control" id="telephone" formControlName="telephone"
                     placeholder="Ex : 06 52 89 83 77">
+                  <div *ngIf="inscriptionForm.get('telephone')?.invalid && inscriptionForm.get('telephone')?.touched" class="text-danger">
+                    Numéro de téléphone valide requis
+                  </div>
                 </div>
               </div>
 
@@ -147,12 +166,18 @@
                 <div class="col-md-6">
                   <label for="ville" class="form-label">Ville</label>
                   <input type="text" class="form-control" id="ville" formControlName="ville" placeholder="Ex : PARIS">
+                  <div *ngIf="inscriptionForm.get('ville')?.invalid && inscriptionForm.get('ville')?.touched" class="text-danger">
+                    Ville requise
+                  </div>
                 </div>
 
                 <div class="col-md-6">
                   <label for="codeNeph" class="form-label">Code NEPH</label>
                   <input type="text" class="form-control" id="codeNeph" formControlName="code_neph"
                     placeholder="Ex : 123456789">
+                  <div *ngIf="inscriptionForm.get('code_neph')?.invalid && inscriptionForm.get('code_neph')?.touched" class="text-danger">
+                    Code NEPH valide requis (chiffres uniquement)
+                  </div>
                 </div>
               </div>
 
@@ -162,6 +187,9 @@
                   <label for="email" class="form-label">Adresse email</label>
                   <input type="email" class="form-control" id="email" formControlName="email"
                     placeholder="email@exemple.com">
+                  <div *ngIf="inscriptionForm.get('email')?.invalid && inscriptionForm.get('email')?.touched" class="text-danger">
+                    Email valide requis
+                  </div>
                 </div>
               </div>
 
@@ -171,17 +199,19 @@
                   <label for="mot_de_passe" class="form-label">Mot de passe</label>
                   <input type="password" class="form-control" id="mot_de_passe" formControlName="mot_de_passe"
                     placeholder="Mot de passe">
+                  <div *ngIf="inscriptionForm.get('mot_de_passe')?.invalid && inscriptionForm.get('mot_de_passe')?.touched" class="text-danger">
+                    Mot de passe requis (minimum 6 caractères)
+                  </div>
                 </div>
               </div>
 
               <!-- Bouton -->
               <div class="row">
                 <div class="col-12 text-center">
-                  <button type="submit" class="btn btn-primary">Ajouter</button>
-                </div>
-                <!-- Message de succès juste en dessous -->
-                <div *ngIf="message" class="col-12 text-center mt-3 alert alert-success">
-                  {{ message }}
+                  <button type="submit" class="btn btn-primary" [disabled]="inscriptionForm.invalid || loading">
+                    <span *ngIf="!loading">Ajouter</span>
+                    <span *ngIf="loading">Chargement...</span>
+                  </button>
                 </div>
               </div>
             

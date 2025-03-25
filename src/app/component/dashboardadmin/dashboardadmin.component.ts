@@ -7,10 +7,18 @@ import { AuthService } from '../../service/auth.service';
 
 @Component({
   selector: 'app-dashboardadmin',
+  standalone : true, 
   templateUrl: './dashboardadmin.component.html',
   styleUrls: ['./dashboardadmin.component.css']
 })
 export class DashboardadminComponent implements OnInit, AfterViewInit {
+
+  constructor(
+    private apiService: ApiService,
+    private router: Router,
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {}
   
   userData: any = {
     id: '',
@@ -28,12 +36,7 @@ export class DashboardadminComponent implements OnInit, AfterViewInit {
   loading: boolean = true;
   error: string = '';
 
-  constructor(
-    private apiService: ApiService,
-    private router: Router,
-    private authService: AuthService,
-    private route: ActivatedRoute
-  ) {}
+
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
