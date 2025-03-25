@@ -17,6 +17,8 @@ export class AdminComponent implements OnInit {
   eleves: Eleve[] = [];
   loading: boolean = true;
   error: string = '';
+  message: string = ''
+  
 
   constructor(
     private apiService: ApiService,
@@ -34,7 +36,7 @@ export class AdminComponent implements OnInit {
       next: (data) => {
         this.eleves = data;
         this.loading = false;
-        console.log('Élèves chargés:', this.eleves); // Correction ici
+        console.log('Élèves chargés:', this.eleves); 
       },
       error: (error) => {
         console.error('Erreur lors du chargement des élèves', error);

@@ -21,12 +21,12 @@ import { AvisComponent } from './component/avis/avis.component';
 import { PageavisComponent } from './component/pageavis/pageavis.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     FooterComponent,
     AccueilComponent,
     CandidatComponent,
@@ -38,12 +38,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     DashboardComponent,
     AvisComponent,
     PageavisComponent,
-    
-    
-  ],
-  imports: [
-    ConnexionComponent,
     ModifierComponent,
+    HeaderComponent,
+    
+   
+  ],
+  imports: [ 
+    
+    ConnexionComponent,
     BrowserModule,
     DashboardadminComponent,
     AppRoutingModule,
@@ -51,6 +53,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+    CommonModule,  
+    
     
   ],
   providers: [],

@@ -28,6 +28,7 @@ const routes: Routes = [
   {path:'app-modifier', component:ModifierComponent}, 
   {path:'app-avis', component:AvisComponent}, 
   {path:'app-pageavis', component:PageavisComponent}, 
+  { path: 'app-modifier/:id', component: ModifierComponent },
   {path: '', component: AccueilComponent}, 
 ];
 

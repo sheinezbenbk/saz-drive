@@ -31,4 +31,26 @@
     }
 }
 
+.voir-plus-btn {
+    background-color: #0f0f0f;
+    color: white;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-transform: uppercase;
+    width: 240px;
+    height: 60px;
+    display: block;
+    margin: 30px auto 20px;
+    text-align: center;
+    text-decoration: none;
+    line-height: 36px;
+}
+
+.voir-plus-btn:hover {
+    background-color: #333333;
+}
+
 

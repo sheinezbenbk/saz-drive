@@ -28,34 +28,26 @@
     font-weight: bold; 
 }
 
-.btn-submit {
-    
-    color: #000;
+
+.custom-button {
+    background-color: #63E189;
+    color: black;
     font-weight: bold;
-    padding: 10px 30px;
-    border: none;
+    text-transform: uppercase;
+    border: 1px solid black;
     border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-submit:hover {
-    
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn-submit:disabled {
-    background-color: #6bc170;
-    color: #000000;
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-.btn-submit-container {
-    margin-top: 20px;
-}
+    padding: 15px 60px;
+    font-size: 16px;
+    box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.8);
+    transition: all 0.1s ease;
+  }
+  
+  .custom-button:hover {
+    background-color: #49b96a;
+    transform: translateY(2px);
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.3);
+  }
+     
 
 .alert-container {
     animation: fadeInDown 0.5s ease-in-out;

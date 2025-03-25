@@ -32,10 +32,12 @@
               <a class="nav-link fw-semibold" href="" style="text-decoration: none; color: #000000;">À PROPOS</a>
               <hr style="border: 2px solid #B6BFB0; opacity: 1; border-radius: 10px;">
             </div>
+
             <div class="d-flex align-items-center">
-              <img class="rounded" src="/icone/iconelogout.png" alt="" style="height: 20px; width: 20px;">
-              <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="">DECONNEXION</a>
+              <img class="rounded" src="/icone/iconelogout.png" alt="Logout" style="height: 20px; width: 20px;">
+              <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;" href="javascript:void(0);" (click)="logout()">DÉCONNEXION</a>
             </div>
+
             <hr style="border: 1px solid #050505; opacity: 1; border-radius: 10px;">
             <div class="d-flex align-items-center mt-3">
               <img class="rounded" src="/icone/iconmenu.png" alt="" style="height: 20px; width: 20px;">
@@ -47,17 +49,16 @@
               <a class="mx-1 fw-semibold" style="text-decoration: none; color: #000000;">GESTION DES ÉLÈVES</a>
             </div>
 
-            
             <a class="nav-link mt-2 fw-medium menuvertical" href="" style="text-decoration: none; color: #000000;"
-            routerLink="/app-admin" routerLinkActive="active">LISTES DES ÉLÈVES</a>
-          
-            <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription"
-            routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
-            ÉLÈVE</a>
-          
-            <a class="nav-link fw-medium menuvertical" routerLink="/app-avis" routerLinkActive="active"
-            style="text-decoration: none; color: #000000;" routerLink="/app-avis" routerLinkActive="active">GESTION
-            DES AVIS</a>
+              routerLink="/app-admin" routerLinkActive="active">LISTES DES ÉLÈVES</a>
+            
+              <a class="nav-link fw-medium menuvertical" routerLink="/app-inscription"
+              routerLinkActive="active text-decoration: none; color: #000000;">AJOUTER UN
+              ÉLÈVE</a>
+            
+              <a class="nav-link fw-medium menuvertical" routerLink="/app-avis" routerLinkActive="active"
+              style="text-decoration: none; color: #000000;">GESTION DES AVIS</a>
+
 
             <!--MENU SANS LIENS POUR-->
             <a class="nav-link mt-2 menuvertical" style="text-decoration: none; color: #000000;"></a>
@@ -80,71 +81,108 @@
         </div>
       </nav>
     </div>
-
+    
     <div class="form-container">
-
       <h1>MODIFIER UN ÉLÈVE</h1>
-      <p class="subtitle">AJOUTER UN NOUVELLE ÉLÈVE À PARTIR DE SES INFOS POUR GARANTIR L'OBTENTION DU CODE DE LA BORIE
-        À COUP SÛR !</p>
+      <p class="subtitle">MODIFIER LES INFORMATIONS D'UN ÉLÈVE POUR METTRE À JOUR SON DOSSIER </p>
 
-      <div class="form-card">
-        <form formGroup="eleveForm">
+      <!-- Messages d'erreur/succès -->
+      <div *ngIf="error" class="alert alert-danger mb-4">{{ error }}</div>
+      <div *ngIf="message" class="alert alert-success mb-4">{{ message }}</div>
+
+      <!-- Affichage du chargement -->
+      <div *ngIf="loading" class="text-center my-5">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Chargement...</span>
+        </div>
+        <p class="mt-2">Chargement des informations de l'élève...</p>
+      </div>
+
+      <div class="form-card" *ngIf="!loading">
+
+        <form [formGroup]="eleveForm" (ngSubmit)="onSubmit()">
           <div class="form-row">
             <div class="form-group">
               <label for="nom">NOM</label>
-              <input type="text" id="nom" formControlName="nom" placeholder="VIGNESWARAN ">
-            </div>
-            <div class="form-group">
-              <label for="prenom">PRÉNOM</label>
-              <input type="text" id="prenom" formControlName="prenom" placeholder="ABI">
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group date-group">
-              <label>DATE DE NAISSANCE</label>
-              <div class="date-inputs">
-                <input type="text" formControlName="dateNaissance.jour" placeholder="JJ">
-                <span class="date-separator">/</span>
-                <input type="text" formControlName="dateNaissance.mois" placeholder="MM">
-                <span class="date-separator">/</span>
-                <input type="text" formControlName="dateNaissance.annee" placeholder="AAAA">
+              <input type="text" id="nom" formControlName="nom">
+              <div *ngIf="eleveForm.get('nom')?.invalid && eleveForm.get('nom')?.touched" class="text-danger">
+                Nom requis
               </div>
             </div>
             <div class="form-group">
-              <label for="codeINEPH">CODE NEPH</label>
-              <input type="text" id="codeINEPH" formControlName="codeNEPH" placeholder="1425434353453153">
+              <label for="prenom">PRÉNOM</label>
+              <input type="text" id="prenom" formControlName="prenom">
+              <div *ngIf="eleveForm.get('prenom')?.invalid && eleveForm.get('prenom')?.touched" class="text-danger">
+                Prénom requis
+              </div>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group date-group" formGroupName="dateNaissance">
+              <label>DATE DE NAISSANCE</label>
+              <div class="date-inputs">
+                <input type="text" formControlName="jour" placeholder="JJ">
+                <span class="date-separator">/</span>
+                <input type="text" formControlName="mois" placeholder="MM">
+                <span class="date-separator">/</span>
+                <input type="text" formControlName="annee" placeholder="AAAA">
+              </div>
+              <div
+                *ngIf="(eleveForm.get('dateNaissance.jour')?.invalid && eleveForm.get('dateNaissance.jour')?.touched) || 
+                          (eleveForm.get('dateNaissance.mois')?.invalid && eleveForm.get('dateNaissance.mois')?.touched) ||
+                          (eleveForm.get('dateNaissance.annee')?.invalid && eleveForm.get('dateNaissance.annee')?.touched)"
+                class="text-danger">
+                Date de naissance invalide
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="codeNEPH">CODE NEPH</label>
+              <input type="text" id="codeNEPH" formControlName="codeNEPH">
+              <div *ngIf="eleveForm.get('codeNEPH')?.invalid && eleveForm.get('codeNEPH')?.touched" class="text-danger">
+                Code NEPH requis
+              </div>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group">
-              <label for="pays">PAYS</label>
-              <input type="text" id="pays" formControlName="pays" placeholder="FRANCE">
+              <label for="telephone">TÉLÉPHONE</label>
+              <input type="text" id="telephone" formControlName="telephone">
+              <div *ngIf="eleveForm.get('telephone')?.invalid && eleveForm.get('telephone')?.touched"
+                class="text-danger">
+                Téléphone requis
+              </div>
             </div>
             <div class="form-group">
               <label for="ville">VILLE</label>
-              <input type="text" id="ville" formControlName="ville" placeholder="PARIS">
-            </div>
-            <div class="form-group">
-              <label for="codePostal">CODE POSTAL</label>
-              <input type="text" id="codePostal" formControlName="codePostal" placeholder="77500">
+              <input type="text" id="ville" formControlName="ville">
+              <div *ngIf="eleveForm.get('ville')?.invalid && eleveForm.get('ville')?.touched" class="text-danger">
+                Ville requise
+              </div>
             </div>
           </div>
 
           <div class="form-group">
             <label for="email">ADRESSE EMAIL</label>
-            <input type="email" id="email" formControlName="email" placeholder="rireqreereqsr@gmail.com">
+            <input type="email" id="email" formControlName="email">
+            <div *ngIf="eleveForm.get('email')?.invalid && eleveForm.get('email')?.touched" class="text-danger">
+              Email valide requis
+            </div>
           </div>
 
           <div class="form-group">
             <label for="motDePasse">MOT DE PASSE</label>
-            <input type="password" id="motDePasse" formControlName="motDePasse" placeholder="abi822632fdsf">
+            <input type="password" id="motDePasse" formControlName="motDePasse">
+            <div *ngIf="eleveForm.get('motDePasse')?.invalid && eleveForm.get('motDePasse')?.touched"
+              class="text-danger">
+              Mot de passe requis
+            </div>
           </div>
 
           <div class="form-buttons">
-            <button type="submit" class="btn btn-update">METTRE À JOUR</button>
-            <button type="button" class="btn btn-delete">SUPPRIMER</button>
+            <button type="submit" class="btn btn-update" [disabled]="eleveForm.invalid">METTRE À JOUR</button>
+            <button type="button" class="btn btn-delete" (click)="supprimerEleve()">SUPPRIMER</button>
           </div>
         </form>
       </div>

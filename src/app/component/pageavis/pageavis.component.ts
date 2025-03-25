@@ -4,7 +4,7 @@ import { ApiService } from '../../service/api.service';
 
 @Component({
   selector: 'app-pageavis',
-  standalone:false, 
+  standalone: false,
   templateUrl: './pageavis.component.html',
   styleUrls: ['./pageavis.component.css']
 })
@@ -14,23 +14,26 @@ export class PageavisComponent implements OnInit {
   message: string = '';
   isError: boolean = false;
   isSuccess: boolean = false;
-  utilisateurId: number | undefined
+  utilisateurId: number | undefined;
+  userInfo: any = null;
 
   constructor(
     private fb: FormBuilder,
-    private apiService: ApiService, 
-    
+    private apiService: ApiService
   ) {
     this.avisForm = this.fb.group({
       commentaire: ['', Validators.required],
-      titre: ['SUPER PRÉPARATION POUR LE CODE !']
+      titre: ['', Validators.required]
     });
     
-    // Récupérer l'ID de l'utilisateur depuis le localStorage
+    // Récupérer les informations de l'utilisateur depuis le localStorage
     const userStr = localStorage.getItem('user');
     if (userStr) {
-      const user = JSON.parse(userStr);
-      this.utilisateurId = user.id;
+      this.userInfo = JSON.parse(userStr);
+      this.utilisateurId = this.userInfo.id;
+      console.log('Utilisateur connecté:', this.userInfo);
+    } else {
+      console.log('Aucun utilisateur connecté');
     }
   }
 
@@ -41,10 +44,12 @@ export class PageavisComponent implements OnInit {
   chargerAvis() {
     this.apiService.getAvis().subscribe({
       next: (data) => {
+        console.log('Avis chargés:', data);
         this.listeAvis = data;
       },
       error: (error) => {
         console.error('Erreur lors du chargement des avis:', error);
+        this.afficherMessage('Impossible de charger les avis', true);
       }
     });
   }
@@ -54,24 +59,31 @@ export class PageavisComponent implements OnInit {
       const avis = {
         id_utilisateur: this.utilisateurId,
         commentaire: this.avisForm.value.commentaire,
-        titre: this.avisForm.value.titre
+        titre: this.avisForm.value.titre.toUpperCase(),
       };
+      
+      console.log('Envoi de l\'avis:', avis);
       
       this.apiService.ajouterAvis(avis).subscribe({
         next: (reponse) => {
+          console.log('Réponse après ajout:', reponse);
           this.afficherMessage('Votre avis a été ajouté avec succès!', false);
           this.avisForm.reset({
             titre: 'SUPER PRÉPARATION POUR LE CODE !'
           });
-          this.chargerAvis();
+          this.chargerAvis(); // Recharger la liste des avis
         },
         error: (erreur) => {
           console.error('Erreur lors de l\'ajout de l\'avis:', erreur);
-          this.afficherMessage('Erreur lors de l\'ajout de l\'avis', true);
+          this.afficherMessage('Erreur lors de l\'ajout de l\'avis: ' + (erreur.message || 'Erreur inconnue'), true);
         }
       });
     } else {
-      this.afficherMessage('Veuillez remplir tous les champs obligatoires ou vous connecter', true);
+      if (!this.utilisateurId) {
+        this.afficherMessage('Vous devez être connecté pour laisser un avis', true);
+      } else {
+        this.afficherMessage('Veuillez remplir tous les champs obligatoires', true);
+      }
     }
   }
 

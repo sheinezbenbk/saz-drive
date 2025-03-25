@@ -207,14 +207,14 @@
 
               <!-- Bouton -->
               <div class="row">
-                <div class="col-12 text-center">
-                  <button type="submit" class="btn btn-primary" [disabled]="inscriptionForm.invalid || loading">
+                <div class="col-12 text-start">
+                  <button type="submit" class="custom-button" [disabled]="inscriptionForm.invalid || loading">
                     <span *ngIf="!loading">Ajouter</span>
                     <span *ngIf="loading">Chargement...</span>
                   </button>
                 </div>
               </div>
-            
+
             </form>
           </div>
         </div>

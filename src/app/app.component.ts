@@ -16,17 +16,16 @@ export class AppComponent {
   constructor(private router: Router) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        const hiddenPages = [
+        const hiddenPrefixes = [
           '/app-dashboardadmin', 
           '/app-admin', 
           '/app-modifier', 
           '/app-inscription', 
-          '/app-avis'
+          '/app-avis', 
+          
         ]; 
-        this.hideHeader = hiddenPages.includes(event.url);
+        this.hideHeader = hiddenPrefixes.some(prefix => event.url.startsWith(prefix));
       }
     });
   }
-
-
 }

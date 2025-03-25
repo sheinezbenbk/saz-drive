@@ -57,8 +57,7 @@
               ÉLÈVE</a>
             
               <a class="nav-link fw-medium menuvertical" routerLink="/app-avis" routerLinkActive="active"
-              style="text-decoration: none; color: #000000;" routerLink="/app-avis" routerLinkActive="active">GESTION
-              DES AVIS</a>
+              style="text-decoration: none; color: #000000;">GESTION DES AVIS</a>
 
 
             <!--MENU SANS LIENS POUR-->
@@ -84,13 +83,22 @@
     </div>
 
     <div class="col-12 col-sm-9 col-xl-10">
+      
       <!-- PARTIE LISTE DES ÉLÈVES -->
+      
       <div class="container-fluid">
         <div class="row mt-5">
           <div class="col-md-12 col-lg-12 col-xl-5">
             <h3 class="ms-4 fw-bolder">LISTE DES ÉLÈVES</h3>
             <p class="ms-4 mt-1 fw-medium text-secondary">DÉCOUVREZ TOUS LES ÉLÈVES PRÉSENTS DANS LA SAZ TEAM,
               VISUALISEZ LEURS RÉSULTATS, LEUR ÉVOLUTION, MODIFIEZ LEURS COORDONNÉES..</p>
+          </div>
+          <!-- Message de succès/erreur -->
+          <div *ngIf="message" class="col-12 mt-3">
+            <div class="alert alert-success">{{ message }}</div>
+          </div>
+          <div *ngIf="error" class="col-12 mt-3">
+            <div class="alert alert-danger">{{ error }}</div>
           </div>
           <!-- PARTIE TABLEAU DES ÉLÈVES -->
           <div class="col-md-12 col-lg-12 col-xl-12">
@@ -123,7 +131,7 @@
 
                       <!-- PHOTO DE PROFIL AVEC LE NOM PRÉNOM -->
                       <td class="fw-semibold">
-                        <a  [routerLink]="['/app-dashboardadmin']" >
+                        <a [routerLink]="['/app-dashboardadmin', eleve.id]">
                           <img src="/image/pdphomme.png">{{ eleve.nom }} {{ eleve.prenom }}
                         </a>
                       </td>
@@ -137,7 +145,7 @@
                   
                       <!-- BOUTON POUR MODIFIER -->
                       <td class="text-end px-4">
-                        <a [routerLink]="['/app-modifier']">
+                        <a [routerLink]="['/app-modifier', eleve.id]">
                           <img src="/icone/crayon.png">
                         </a>
                       </td>
