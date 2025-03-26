@@ -29,6 +29,12 @@ SAZ'DRIVE est une plateforme avec plusieurs fonctionnalités :
 
 - **PAGE AVIS** : Les élèves ont la possibilité d'écrire des avis et commentaires concernant la plateforme SAZ'DRIVE, des avis qui permettront à la plateforme de s'améliorer. Les admins ont la possibilité de supprimer les avis en cas de message indésirable.
 
+- **DIAGRAMME DE CLASSE**
+
+  
+![Diagramme de classe](Diagramme_de_classe.jpg)
+
+
 ---
 
 #### **Comment s'est déroulée l'organisation de ce projet ?**
