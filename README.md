@@ -80,7 +80,7 @@ SAZ'DRIVE est une plateforme avec plusieurs fonctionnalités :
 - **Langages de programmation** : HTML, CSS, JavaScript, TypeScript.
 - **Framework** : Angular
 - **Bibliothèques** : Bootstrap, Chart.js  
-- **Création des maquettes** : Figma
+- **Création des maquettes et leur charte graphique** : [Figma](https://www.figma.com/design/9rQdWT5s8afsK3b3ae3Sse/SAE-401?node-id=0-1&t=jHJJNT9yNxC5lC07-1)
 - **Développement** : Visual Studio Code.  
 
 ---
